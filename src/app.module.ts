@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PetsModule } from './pets/pets.module';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'node:path'
+import { join } from 'node:path';
 import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -15,12 +15,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: ':memory:', //file:./dev.sqlite
-      entities: ['dist/**/*.entitiy{.ts,.js}'],
-      synchronize: true
-    })
-    PetsModule],
-  controllers: [AppController],
-  providers: [AppService],
+      database: ':memory:',
+      entities: ['dist/**/*.entity{.ts,.js}'],
+      synchronize: true,
+    }),
+    PetsModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}
